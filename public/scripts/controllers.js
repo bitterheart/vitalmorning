@@ -1,7 +1,7 @@
 (function(app){
     "use strict";
-    app.controller('controller','LocalStorageService',["$scope",function($scope,localStorageService){
-        $scope.name='xxx';
+    app.controller("controller",["$scope","LocalStorageService",function($scope,localStorageService){
+        $scope.name="xxx";
         /*
         localStorageService.getName().then(function(name){
             $scope.name=name;
