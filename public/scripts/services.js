@@ -4,7 +4,7 @@
         this.setName=function(name){
             var deferred=$q.defer();
             localStorage.setItem('name',name);
-            deferred.fulfill();
+            deferred.resolve();
             return deferred.promise;
         };
         this.getName=function(){
