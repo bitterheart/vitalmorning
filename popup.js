@@ -8,6 +8,10 @@
  *
  * @type {string}
  */
+ 
+ 
+ console.log('hello world');
+ 
 var QUERY = 'kittens';
 
 var kittenGenerator = {
