@@ -3,6 +3,6 @@ describe('simple tests', function() {
        browser.get('index.html');
     });
     it('fails', function() {
-        expect(element(by.css('span')).getText()).toEqual('wrong');
+        expect(element(by.css('span')).getText()).toEqual('');
     });
 });
