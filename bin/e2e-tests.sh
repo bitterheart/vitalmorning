@@ -1,4 +1,6 @@
 #!/bin/bash
+more Gruntfile.js
+more config/protractor.conf.js
 sudo yum update -y
 if [ ! -f epel-release-7-2.noarch.rpm ]
 then
