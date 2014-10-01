@@ -1,5 +1,6 @@
 (function(app){
     "use strict";
+
     app.service('LocalStorageService',["$q",function($q){
         this.setName=function(name){
             var deferred=$q.defer();
@@ -14,25 +15,25 @@
         };
         this.addEntry=function(entry){
             var deferred=$q.defer();
-            var entries=localStorage.getItem('entries');
+            var entries=angular.toJson(localStorage.getItem('entries'));
             if((!entries)||(!Array.isArray(entries))){
                 entries=[];
 //                localStorage.setItem('entries',entries);
             }
             entries.push(entry);
-            localStorage.setItem('entries',entries);
+            localStorage.setItem('entries',angular.fromJson(entries));
             deferred.resolve();
             return deferred.promise;
         };
         this.getEntries=function(){
             var deferred=$q.defer();
-            var entries=localStorage.getItem('entries');
+            var entries=angular.toJson(localStorage.getItem('entries'));
             deferred.resolve(entries);
             return deferred.promise;
         };
         this.deleteAllEntries=function(){
             var deferred=$q.defer();
-            localStorage.getItem('entries',[]);
+            localStorage.setItem('entries',angular.fromJson([]));
             deferred.resolve();
             return deferred.promise;
         };
