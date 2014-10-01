@@ -2,7 +2,7 @@ describe('controller tests', function() {
     beforeEach(module('app'));
     it('add', inject(['$controller', '$q',
         function($controller, $q) {
-            var $scope = {};
+            var $scope = { loginPage: 'a' , userId:'b', password:'c'};
             $controller('controller', {
                 $scope: $scope,
                 LocalStorageService: {
@@ -13,19 +13,15 @@ describe('controller tests', function() {
                     },
                     addEntry: function(entry) {
                         var deferred=$q.defer();
-                        expect(entry.loginUrl).toEqual('someurl');
-                        expect(entry.userid).toEqual('someuser');
-                        expect(entry.password).toEqual('somepassword');
+                        expect(entry.loginPage).toEqual('a');
+                        expect(entry.userId).toEqual('b');
+                        expect(entry.password).toEqual('c');
                         deferred.resolve('hi');
                         return deferred.promise;
                     }
                 }
             });
-            $scope.addEntry({
-                loginUrl: 'someurl',
-                userid: 'someuser',
-                password: 'somepassword'
-            });
+            $scope.addEntry();
         }
     ]));
     it('deleteAll', inject(['$controller', '$q',

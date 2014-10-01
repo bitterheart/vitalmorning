@@ -12,6 +12,20 @@
       <input ng-model="name"></input>
       <span ng-bind="name"></span>
       <button ng-click='saveName()'>save</button>
+      <span class='deleteAll' ng-click='deleteAll()'>Delete All</span>
+      <span class='addEntry' ng-click='addEntry()'>Add Entry</span>
+      <div class='addition'>
+        <input ng-bind="loginPage"/>
+        <input ng-bind="userId"/>
+        <input ng-bind="password"/>
+      </div>
+      <div class='entries'>
+        <div class='entry' ng-repeat='entry in getEntries()'>
+          <span class='loginPage' ng-bind='entry.loginPage'></span>
+          <span class='userId' ng-bind='entry.userId'></span>
+          <span class='passwrod' ng-bind='entry.password'></span>
+        </div>
+      </div>
     </div>
   </body>
 </html>

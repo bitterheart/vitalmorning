@@ -13,8 +13,8 @@
                 
             });
         };
-        $scope.addEntry=function(entry){
-            localStorageService.addEntry(entry).then(function(response){
+        $scope.addEntry=function(){
+            localStorageService.addEntry({loginPage:$scope.loginPage, userId:$scope.userId, password:$scope.password}).then(function(response){
                 
             });
         }
