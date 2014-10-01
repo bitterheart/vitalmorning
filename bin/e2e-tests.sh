@@ -14,7 +14,7 @@ then
 fi
 sudo yum update -y
 npm install
-if [ ! -d /tmp/.X99-lock ]
+if [ ! -f /tmp/.X99-lock ]
 then
     Xvfb :99 -ac -screen 0 1024x768x24 &
     export DISPLAY=:99
