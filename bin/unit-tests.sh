@@ -1,4 +1,5 @@
 #!/bin/bash
+more $0
 sudo yum update -y
 if [ ! -f epel-release-7-2.noarch.rpm ]
 then
