@@ -20,4 +20,4 @@ then
     export DISPLAY=:99
 fi
 ./node_modules/protractor/bin/webdriver-manager update --standalone  
-grunt e2etests-ci
+grunt e2e-tests-ci
