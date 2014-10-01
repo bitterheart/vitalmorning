@@ -1,11 +1,5 @@
 #!/bin/bash
 sudo yum update -y
-echo aaaaaaaaaaaaaaaaaaaaaa
-yum provides *bin/npm
-echo aaaaaaaaaaaaaaaaaaaaaa
-yum provides *bin/grunt
-echo aaaaaaaaaaaaaaaaaaaaaa
-sudo yum install -y wget
 if [ ! -f epel-release-7-1.noarch.rpm ]
 then
     wget http://mirror.sfo12.us.leaseweb.net/epel/7/x86_64/e/epel-release-7-1.noarch.rpm
@@ -27,3 +21,9 @@ then
 fi
 ./node_modules/protractor/bin/webdriver-manager update --standalone  
 grunt e2etests-ci
+echo aaaaaaaaaaaaaaaaaaaaaa
+yum provides *bin/npm
+echo aaaaaaaaaaaaaaaaaaaaaa
+yum provides *bin/grunt
+echo aaaaaaaaaaaaaaaaaaaaaa
+sudo yum install -y wget
