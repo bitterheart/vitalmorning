@@ -12,6 +12,7 @@ module.exports = function(grunt) {
     express: {
       cli: {
         options: {
+          hostname: '*',
           port: 31574,
           bases: 'public'
         }
