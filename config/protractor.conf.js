@@ -5,7 +5,7 @@ exports.config = {
     '../test/e2e/*.js',
   ],
   capabilities: {
-    browserName: 'Chrome',
+    browserName: 'chrome',
     chromeOptions: {
       binary: '/usr/bin/google-chrome',
       args: ['--disable-web-security']
