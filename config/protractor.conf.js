@@ -7,7 +7,7 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: '/usr/bin/chromium-browser',
+      binary: '/usr/bin/google-chrome',
       args: ['--disable-web-security']
 
     },
