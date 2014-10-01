@@ -14,10 +14,10 @@ then
     sudo yum update -y
 fi
 npm install
-if [ ! -f /tmp/.X99-lock ]
-then
+#if [ ! -f /tmp/.X99-lock ]
+#then
     Xvfb :99 -ac -screen 0 1024x768x24 &
     export DISPLAY=:99
-fi
+#fi
 ./node_modules/protractor/bin/webdriver-manager update --standalone  
 grunt e2e-tests-ci
