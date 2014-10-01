@@ -4,10 +4,14 @@
         $scope.name="xxx";
         localStorageService.getName().then(function(name){
             $scope.name=name;
-        });
+        };
         $scope.saveName=function(){
             localStorageService.setName($scope.name);
         };
+        $scope.entries;
+        localStorageService.getEntries().then(function(results){
+            $scope.entries=results;
+        });
         $scope.deleteAllEntries=function(){
             localStorageService.deleteAllEntries().then(function(response){
                 
@@ -17,6 +21,6 @@
             localStorageService.addEntry({loginPage:$scope.loginPage, userId:$scope.userId, password:$scope.password}).then(function(response){
                 
             });
-        }
+        };
     }]);
 }(window.angular.module('app')));
