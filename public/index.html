@@ -15,9 +15,9 @@
       <span class='deleteAll' ng-click='deleteAll()'>Delete All</span>
       <span class='addEntry' ng-click='addEntry()'>Add Entry</span>
       <div class='addition'>
-        <input ng-bind="loginPage"/>
-        <input ng-bind="userId"/>
-        <input ng-bind="password"/>
+        <input class="loginPage" ng-bind="loginPage"/>
+        <input class="userId" ng-bind="userId"/>
+        <input class="password" ng-bind="password"/>
       </div>
       <div class='entries'>
         <div class='entry' ng-repeat='entry in getEntries()'>
