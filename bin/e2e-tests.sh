@@ -1,7 +1,10 @@
 #!/bin/bash
-yum provides *bin/npm
-yum provides *bin/grunt
 sudo yum update -y
+echo aaaaaaaaaaaaaaaaaaaaaa
+yum provides *bin/npm
+echo aaaaaaaaaaaaaaaaaaaaaa
+yum provides *bin/grunt
+echo aaaaaaaaaaaaaaaaaaaaaa
 sudo yum install -y wget
 if [ ! -f epel-release-7-1.noarch.rpm ]
 then
