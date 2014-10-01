@@ -1,5 +1,5 @@
 describe('simple tests', function() {
     it('fails', function() {
-        expect(element(by.cs('span')).getText()).toEqual('wrong');
+        expect(element(by.css('span')).getText()).toEqual('wrong');
     });
 });
