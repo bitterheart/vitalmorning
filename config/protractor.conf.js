@@ -17,7 +17,7 @@ exports.config = {
   },
   multiCapabilities: [],
   maxSessions: -1,
-  baseUrl: 'http://127.0.0.1:31574/index.html',
+  baseUrl: 'http://127.0.0.1:31574',
   rootElement: 'body',
   allScriptsTimeout: 11000,
   getPageTimeout: 10000,
