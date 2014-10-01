@@ -47,7 +47,7 @@ module.exports = function(grunt) {
       ci: {
         options: {
           configFile: "config/protractor.conf.js",
-          keepAlive: true,
+          keepAlive: false,
           noColor: true,
           args: {}
         }
