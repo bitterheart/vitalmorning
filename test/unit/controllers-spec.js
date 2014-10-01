@@ -12,10 +12,12 @@ describe('controller tests', function() {
                         return deferred.promise;
                     },
                     addEntry: function(entry) {
+                        var deferred=$q.defer();
                         expect(entry.loginUrl).toEqual('someurl');
                         expect(entry.userid).toEqual('someuser');
                         expect(entry.password).toEqual('somepassword');
-                        expect(entry.password).toEqual('wrong');
+                        deferred.resolve('hi');
+                        return deferred.promise;
                     }
                 }
             });
@@ -44,9 +46,7 @@ describe('controller tests', function() {
                     }
                 }
             });
-            $scope.deleteAllEntries().then(function(result){
-                expect(result).toEqual('deleted');
-            });
+            $scope.deleteAllEntries();
         }
     ]));
 });

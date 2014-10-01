@@ -8,5 +8,15 @@
         $scope.saveName=function(){
             localStorageService.setName($scope.name);
         };
+        $scope.deleteAllEntries=function(){
+            localStorageService.deleteAllEntries().then(function(response){
+                
+            });
+        };
+        $scope.addEntry=function(entry){
+            localStorageService.addEntry(entry).then(function(response){
+                
+            });
+        }
     }]);
 }(window.angular.module('app')));

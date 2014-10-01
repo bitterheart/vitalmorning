@@ -4,8 +4,8 @@ describe('local storage service tests ', function() {
         it('should add', inject(['LocalStorageService',
             function(localStorageService) {
                 localStorageService.getEntries().then(function(oldEntries) {
-                    localStorage.addEntries('someurl', 'someuserid', 'somepassword').then(function(result) {
-                        localStorage.getEntries().then(function(newEntries) {
+                    localStorageService.addEntries('someurl', 'someuserid', 'somepassword').then(function(result) {
+                        localStorageService.getEntries().then(function(newEntries) {
                             expect(oldEntries.length).toEqual(newEntries.length - 1);
                             expect(newEntries[newEntries.length - 1].loginPage).toEqual('someurl');
                             expect(newEntries[newEntries.length - 1].userid).toEqual('userid');
@@ -20,9 +20,9 @@ describe('local storage service tests ', function() {
     describe('deleteall', function() {
         it('should delete all', inject(['LocalStorageService',
             function(localStorageService) {
-                localStorage.addEntries('someurl', 'someuserid', 'somepassword').then(function(result) {
-                    localStorage.deleteAllEntries().then(function(result) {
-                        localStorage.getEntries().then(function(newEntries) {
+                localStorageService.addEntry('someurl', 'someuserid', 'somepassword').then(function(result) {
+                    localStorageService.deleteAllEntries().then(function(result) {
+                        localStorageService.getEntries().then(function(newEntries) {
                             expect(oldEntries.length).toEqual(0);
                         });
                     });
