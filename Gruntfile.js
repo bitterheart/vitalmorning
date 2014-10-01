@@ -77,7 +77,7 @@ module.exports = function(grunt) {
         port: 31982,
         singleRun: true,
         autoWatch: false,
-        reporters: ['html', 'coverage'],
+        reporters: ['progress', 'html', 'coverage'],
       }
     }
 

@@ -15,12 +15,12 @@ module.exports = function(config) {
 		logLevel: config.LOG_INFO,
 		browsers: ['PhantomJS'],
 		htmlReporter: {
-			outputDir: '/tmp/unit-test/karma',
+			outputDir: '/tmp/unit-tests/correctness',
 			templatePath: __dirname + '/../node_modules/karma-html-reporter/jasmine_template.html'
 		},
 		coverageReporter: {
 			type: 'html',
-			dir: '/tmp/unit-test/coverage/'
+			dir: '/tmp/unit-tests/coverage/'
 		},
 		plugins: [
 			'karma-html-reporter',
