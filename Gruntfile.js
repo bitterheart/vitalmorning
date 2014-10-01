@@ -26,18 +26,23 @@ module.exports = function(grunt) {
       }
     },
     protractor_webdriver: {
-      options: {},
+      options: {
+        path: 'node_modules/protractor/bin/',
+        command: 'webdriver-manager start'
+
+      },
       cli: {
         path: 'node_modules/protractor/bin/',
         command: 'webdriver-manager start'
       },
       ci: {
         path: 'node_modules/protractor/bin/',
-        command: 'webdriver-manager start'
+        command: 'webdriver-manager start',
+        keepAlive: false
       },
     },
     protractor: {
-      option:{
+      option: {
         keepAlive: false,
         noColor: false,
         args: {}
