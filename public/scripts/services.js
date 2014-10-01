@@ -20,6 +20,7 @@
                 localStorage.setItem('entries',entries);
             }
             entries.push(entry);
+            localStorage.setItem('entries',entries);
             deferred.resolve();
             return deferred.promise;
         };
