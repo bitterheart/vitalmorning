@@ -4,7 +4,7 @@
         $scope.name="xxx";
         localStorageService.getName().then(function(name){
             $scope.name=name;
-        };
+        });
         $scope.saveName=function(){
             localStorageService.setName($scope.name);
         };
