@@ -18,6 +18,7 @@
         <input class="loginPage" ng-bind="loginPage"/>
         <input class="userId" ng-bind="userId"/>
         <input class="password" ng-bind="password"/>
+        <span class="add" ng-click="addEntry()">Add</span>
       </div>
       <div class='entries'>
         <div class='entry' ng-repeat='entry in getEntries()'>
