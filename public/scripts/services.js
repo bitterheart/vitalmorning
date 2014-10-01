@@ -17,7 +17,7 @@
             var entries=localStorage.getItem('entries');
             if(!entries){
                 entries=[];
-                localStorage.setItem(entries);
+                localStorage.setItem(entries,entries);
             }
             entries.push(entry);
             deferred.resolve();
