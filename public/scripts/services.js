@@ -15,9 +15,9 @@
         this.addEntry=function(entry){
             var deferred=$q.defer();
             var entries=localStorage.getItem('entries');
-            if(!entries){
+            if((!entries)||(!Array.isArray(entries))){
                 entries=[];
-                localStorage.setItem('entries',entries);
+//                localStorage.setItem('entries',entries);
             }
             entries.push(entry);
             localStorage.setItem('entries',entries);
