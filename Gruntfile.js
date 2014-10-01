@@ -19,6 +19,7 @@ module.exports = function(grunt) {
       },
       ci: {
         options: {
+          hostname: '*',
           port: 31574,
           bases: 'public'
         }
