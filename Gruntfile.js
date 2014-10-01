@@ -36,21 +36,19 @@ module.exports = function(grunt) {
       },
     },
     protractor: {
-      options: {
-        configFile: "node_modules/protractor/referenceConf.js",
-        keepAlive: false,
-        noColor: false,
-        args: {}
-      },
       cli: {
         options: {
           configFile: "config/protractor.conf.js",
+          keepAlive: true,
+          noColor: false,
           args: {}
         }
       },
       ci: {
         options: {
           configFile: "config/protractor.conf.js",
+          keepAlive: false,
+          noColor: true,
           args: {}
         }
       },
