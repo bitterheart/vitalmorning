@@ -1,9 +1,8 @@
 #!/bin/bash
-more $0
 sudo yum update -y
-ls
 if [ ! -f epel-release-7-2.noarch.rpm ]
 then
+    sudo yum install wget
     wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm
     sudo yum install -y epel-release-7-2.noarch.rpm
     sudo yum update -y
