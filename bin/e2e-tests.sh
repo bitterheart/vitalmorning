@@ -1,6 +1,4 @@
 #!/bin/bash
-more Gruntfile.js
-more config/protractor.conf.js
 sudo yum update -y
 if [ ! -f epel-release-7-2.noarch.rpm ]
 then
@@ -22,4 +20,5 @@ then
     export DISPLAY=:99
 fi
 ./node_modules/protractor/bin/webdriver-manager update --standalone  
+which google-chrome
 grunt e2e-tests-ci
