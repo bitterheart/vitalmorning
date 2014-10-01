@@ -64,11 +64,31 @@ module.exports = function(grunt) {
         }
       },
     },
+    karma: {
+      cli: {
+        configFile: 'config/karma.conf.js',
+        port: 25758,
+        singleRun: false,
+        autoWatch: true,
+        reporters: ['progress'],
+      },
+      ci: {
+        configFile: 'config/karma.conf.js',
+        port: 31982,
+        singleRun: true,
+        autoWatch: false,
+        reporters: ['html', 'coverage'],
+      }
+    }
+
   });
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-protractor-webdriver');
   grunt.loadNpmTasks('grunt-protractor-runner');
+  grunt.loadNpmTasks('grunt-karma');
   grunt.registerTask('e2e-tests-cli', ['express:cli', 'protractor_webdriver:cli', 'protractor:cli']);
   grunt.registerTask('e2e-tests-ci', ['express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
+  grunt.registerTask('unit-tests-cli', ['karma:cli']);
+  grunt.registerTask('unit-test-ci', ['karma:ci']);
 };
