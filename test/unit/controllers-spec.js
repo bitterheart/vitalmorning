@@ -26,4 +26,27 @@ describe('controller tests', function() {
             });
         }
     ]));
+    it('deleteAll', inject(['$controller', '$q',
+        function($controller, $q) {
+            var $scope = {};
+            $controller('controller', {
+                $scope: $scope,
+                LocalStorageService: {
+                    getName: function() {
+                        var deferred=$q.defer();
+                        deferred.resolve('hi');
+                        return deferred.promise;
+                    },
+                    deleteAllEntries: function(entry) {
+                        var deferred=$q.defer();
+                        deferred.resolve('hi');
+                        return deferred.promise;
+                    }
+                }
+            });
+            $scope.deleteAllEntries().then(function(result){
+                expect(result).toEqual('deleted');
+            });
+        }
+    ]));
 });
