@@ -30,13 +30,6 @@ describe('simple tests', function() {
             browser.sleep(5000);
         });
         it('verify', function() {
-            expect(element.all(by.repeater('entry in entries')).count()).toEqual(2);
-            getText(element(by.css('div.entries div.entry:nth-child(1) span.loginPage')),function(text){
-                expect(text).toEqual('wrong');
-            });
-            element(by.repeater('entry in entries').row(0)).then(function(el){
-                expect(el.element(by.css('span.loginPage')).getText()).toEqual('http://something.com');
-            });
             element.all(by.css('div.entries div.entry')).then(function(entries) {
                 expect(entries.length).toEqual(2);
                 expect(entries[0].element(by.css('span.loginPage')).getAttribute('value')).toEqual('http://something.com');
