@@ -18,6 +18,11 @@ describe('controller tests', function() {
                         expect(entry.password).toEqual('c');
                         deferred.resolve('hi');
                         return deferred.promise;
+                    },
+                    getEntries: function(){
+                        var deferred=$q.defer();
+                        deferred.resolve('a');
+                        return deferred.promise;
                     }
                 }
             });
@@ -38,6 +43,11 @@ describe('controller tests', function() {
                     deleteAllEntries: function(entry) {
                         var deferred=$q.defer();
                         deferred.resolve('hi');
+                        return deferred.promise;
+                    },
+                    getEntries: function(){
+                        var deferred=$q.defer();
+                        deferred.resolve('a');
                         return deferred.promise;
                     }
                 }
