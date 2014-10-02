@@ -79,16 +79,55 @@ module.exports = function(grunt) {
         autoWatch: false,
         reporters: ['progress', 'html', 'coverage'],
       }
-    }
+    },
+    crx: {
+      ci: {
+        "src": "./",
+        "dest": "/tmp/dist/crx/",
+      }
+    },
+    simple_crx: {
+      options: {
+        // Task-specific options go here.
+      },
+      ci: {
+        options: {},
+        files: {
 
+        }
+        // Target-specific file lists and/or options go here.
+      },
+    },
+    'chrome-extension': {
+      options: {
+        name: "Password Manager",
+        version: "1.0",
+        id: "00000000000000000000000000000000",
+        updateUrl: "http://example.com/extension/111111/",
+        chrome: "/usr/bin/google-chrome",
+        clean: true,
+        certDir: 'cert',
+        buildDir: 'build',
+        resources: [
+          'icon.png',
+          'public/index.html',
+          'public/cdn/*.js',
+          'public/scripts/*.js'
+        ]
+      }
+    },
   });
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-protractor-webdriver');
   grunt.loadNpmTasks('grunt-protractor-runner');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-crx');
+  grunt.loadNpmTasks('grunt-simple-crx');
+  grunt.loadNpmTasks('grunt-chrome-compile');
   grunt.registerTask('e2e-tests-cli', ['express:cli', 'protractor_webdriver:cli', 'protractor:cli']);
   grunt.registerTask('e2e-tests-ci', ['express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
   grunt.registerTask('unit-tests-cli', ['karma:cli']);
   grunt.registerTask('unit-tests-ci', ['karma:ci']);
+  grunt.registerTask('crx', ['crx:ci'])
 };

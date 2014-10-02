@@ -8,7 +8,8 @@ exports.config = {
     browserName: 'chrome',
     chromeOptions: {
       binary: '/usr/bin/google-chrome',
-      args: ['--disable-web-security']
+      args: ['--disable-web-security'],
+      extensions:['build/*.crx']
 
     },
     count: 1,
