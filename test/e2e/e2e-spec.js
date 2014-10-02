@@ -17,6 +17,7 @@ describe('simple tests', function() {
             element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
             browser.get('index.html');
+            wait(1000);
         });
         it('verify', function() {
             element(by.repeater('entry in entries').row(0)).then(function(el){
