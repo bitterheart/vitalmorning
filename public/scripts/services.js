@@ -40,12 +40,13 @@
             };
             this.getEntries = function() {
                 var deferred = $q.defer();
-                var a1=localStorage.getItem('entries');
+                var a1 = localStorage.getItem('entries');
                 var a2;
-                if(a1){
-                    a2=angular.fromJson(a1);
-                }else{
-                    a2=[];
+                if (a1) {
+                    a2 = angular.fromJson(a1);
+                }
+                else {
+                    a2 = [];
                 }
                 deferred.resolve(a2);
                 return deferred.promise;
@@ -54,6 +55,21 @@
                 var deferred = $q.defer();
                 localStorage.setItem('entries', angular.toJson([]));
                 deferred.resolve();
+                return deferred.promise;
+            };
+        }
+    ]);
+    app.service('ExtensionService', ['$q',
+        function($q) {
+            this.createTab = function(url) {
+                var deferred = $q.defer();
+                chrome.tabs.create({
+                    url: url,
+                    active: true
+                }, function(tab) {
+                    deferred.resolve(tab);
+
+                });
                 return deferred.promise;
             };
         }

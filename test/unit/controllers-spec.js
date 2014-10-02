@@ -126,4 +126,40 @@ describe('controller tests', function() {
             expect($scope.entries).toEqual([]);
         }
     ]));
+    it('should open the login Page',inject(['$rootScope','$q','$controller',function($rootScope,$q,$controller){
+        var $scope={};
+        $controller('controller',{
+            $scope:$scope,
+            LocalStorageService:{
+                getName:function(){
+                    var deferred=$q.defer();
+                    deferred.resolve();
+                    return deferred.promise;
+                },
+                addEntry:function(){
+                    var deferred=$q.defer();
+                    deferred.resolve();
+                    return deferred.promise;
+                },
+                getEntries:function(){
+                    var deferred=$q.defer();
+                    deferred.resolve();
+                    return deferred.promise;
+                }
+            },
+            ExtensionService:{
+                createTab:function(url){
+                    var deferred=$q.defer();
+                    expect(url).toEqual('http://somepage');
+                    deferred.resolve();
+                    return deferred.promise;
+                }
+            }
+        });
+        $scope.loginPage='http://somepage';
+        $scope.userId='userid';
+        $scope.password='password';
+        $scope.addEntry();
+        $scope.openLoginPage($scope.entries[0]);
+    }]));
 });
