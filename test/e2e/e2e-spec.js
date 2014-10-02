@@ -1,4 +1,12 @@
 describe('simple tests', function() {
+    var getText;
+    beforeEach(function(){
+       getText=function(element, callback) {
+        element.getText().then (function(text){             
+            callback(text);
+         });
+       };
+    });
     xdescribe('a very simple test', function() {
         beforeEach(function() {
             browser.get('index.html');
@@ -23,6 +31,9 @@ describe('simple tests', function() {
             browser.get('index.html');
         });
         it('verify', function() {
+            getText(element(by.css('div.entries div.entry:nth-child(1) span.loginPage')),function(text){
+                expect(text).toEqual('wrong');
+            });
             element(by.repeater('entry in entries').row(0)).then(function(el){
                 expect(el.element(by.css('span.loginPage')).getText()).toEqual('http://something.com');
             });
@@ -44,6 +55,7 @@ describe('simple tests', function() {
             element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
             browser.get('index.html');
+            browser.waitForAngular();
         });
         it('verify', function() {
             element(by.css('span.deleteAll')).click();
