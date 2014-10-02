@@ -100,13 +100,15 @@ describe('simple tests', function() {
     describe('open loginPage action', function() {
         beforeEach(function() {
             browser.addMockModule('ExtensionService',['$q',function($q){
-                this.createTab=function(url){
+/*
+this.createTab=function(url){
                     var deferred=$q.defer();
                     expect(url).toEqual('http://something.com');
                     deferred.resolve();
                     return deferred.promise;
                 };
             }]);
+            */
             browser.get('index.html');
             element(by.css('span.deleteAll')).click();
             element(by.css('span.addEntry')).click();
