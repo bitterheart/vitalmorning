@@ -2,25 +2,29 @@ describe('controller tests', function() {
     beforeEach(module('app'));
     it('add', inject(['$controller', '$q',
         function($controller, $q) {
-            var $scope = { loginPage: 'a' , userId:'b', password:'c'};
+            var $scope = {
+                loginPage: 'a',
+                userId: 'b',
+                password: 'c'
+            };
             $controller('controller', {
                 $scope: $scope,
                 LocalStorageService: {
                     getName: function() {
-                        var deferred=$q.defer();
+                        var deferred = $q.defer();
                         deferred.resolve('hi');
                         return deferred.promise;
                     },
                     addEntry: function(entry) {
-                        var deferred=$q.defer();
+                        var deferred = $q.defer();
                         expect(entry.loginPage).toEqual('a');
                         expect(entry.userId).toEqual('b');
                         expect(entry.password).toEqual('c');
                         deferred.resolve('hi');
                         return deferred.promise;
                     },
-                    getEntries: function(){
-                        var deferred=$q.defer();
+                    getEntries: function() {
+                        var deferred = $q.defer();
                         deferred.resolve('a');
                         return deferred.promise;
                     }
@@ -29,33 +33,37 @@ describe('controller tests', function() {
             $scope.addEntry();
         }
     ]));
-    it('add in place', inject(['$controller', '$q',
-        function($controller, $q) {
-            var $scope = { };
+    it('add in place', inject(['$rootScope', '$controller', '$q',
+        function($rootScope, $controller, $q) {
+            var $scope = {};
             $controller('controller', {
                 $scope: $scope,
                 LocalStorageService: {
                     getName: function() {
-                        var deferred=$q.defer();
+                        var deferred = $q.defer();
                         deferred.resolve('hi');
                         return deferred.promise;
                     },
                     addEntry: function(entry) {
-                        var deferred=$q.defer();
-                        expect(entry.loginPage).toEqual('a');
-                        expect(entry.userId).toEqual('b');
-                        expect(entry.password).toEqual('c');
+                        var deferred = $q.defer();
+                        //                        expect(entry.loginPage).toEqual('a');
+                        //                        expect(entry.userId).toEqual('b');
+                        //                        expect(entry.password).toEqual('c');
                         deferred.resolve('hi');
                         return deferred.promise;
                     },
-                    getEntries: function(){
-                        var deferred=$q.defer();
+                    getEntries: function() {
+                        var deferred = $q.defer();
                         deferred.resolve('a');
                         return deferred.promise;
                     }
                 }
             });
-            $scope.addEntry({loginPage:'a',userId:'b',password:'c'});
+            $scope.loginPage = 'a';
+            $scope.userId = 'b';
+            $scope.password = 'c';
+            $scope.addEntry();
+            $rootScope.$apply();
             expect($scope.entries.length).toEqual(1);
             expect($scope.entries[0].loginPage).toEqual('a');
             expect($scope.entries[0].userId).toEqual('b');
@@ -69,17 +77,17 @@ describe('controller tests', function() {
                 $scope: $scope,
                 LocalStorageService: {
                     getName: function() {
-                        var deferred=$q.defer();
+                        var deferred = $q.defer();
                         deferred.resolve('hi');
                         return deferred.promise;
                     },
                     deleteAllEntries: function(entry) {
-                        var deferred=$q.defer();
+                        var deferred = $q.defer();
                         deferred.resolve('hi');
                         return deferred.promise;
                     },
-                    getEntries: function(){
-                        var deferred=$q.defer();
+                    getEntries: function() {
+                        var deferred = $q.defer();
                         deferred.resolve('a');
                         return deferred.promise;
                     }
