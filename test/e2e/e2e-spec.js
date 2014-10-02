@@ -111,12 +111,10 @@ this.createTab=function(url){
             */
             browser.get('index.html');
             element(by.css('span.deleteAll')).click();
-            element(by.css('span.addEntry')).click();
-            element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
+             element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
             element(by.css('div.addition input.userId')).sendKeys('userid');
             element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
-            browser.get('index.html');
         });
         it('should be able to oppen login page', function() {
             element(by.css('div.entries div.entry:nth-child(1) span.loginPage')).click();
