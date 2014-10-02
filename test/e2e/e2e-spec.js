@@ -19,8 +19,8 @@ describe('simple tests', function() {
             browser.get('index.html');
         });
         it('verify', function() {
-            expect(element(by.css('div.entries div.entry:nth-child(1) span.loginPage')).getText()).toEqual('http://something.com');
                 browser.get('index.html');
+            expect(element(by.css('div.entries div.entry:nth-child(1) span.loginPage')).getText()).toEqual('http://something.com');
             element.all(by.repeater('entry in entries')).then(function(entries) {
                 expect(entries.length).toEqual(1);
                 expect(entries[0].element(by.css('span.loginPage')).getText()).toEqual('http://something.com');
