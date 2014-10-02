@@ -34,6 +34,7 @@ describe('simple tests', function() {
             browser.sleep(1000);
         });
         it('verify', function() {
+            expect(element.all(by.css('div.entries div.entry')).count()).toEqual(2);
             getText(element(by.css('div.entries div.entry:nth-child(1) span.loginPage')),function(text){
                 expect(text).toEqual('wrong');
             });
