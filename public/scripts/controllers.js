@@ -8,9 +8,9 @@
         $scope.saveName=function(){
             localStorageService.setName($scope.name);
         };
-        $scope.entries=[{loginPage:'a',userId:'b',password:'c'}];
+        $scope.entries;
         localStorageService.getEntries().then(function(results){
-            $scope.entries.push(results);
+            $scope.entries=results;
         });
         $scope.deleteAllEntries=function(){
             localStorageService.deleteAllEntries().then(function(response){
