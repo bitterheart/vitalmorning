@@ -96,4 +96,32 @@ describe('controller tests', function() {
             $scope.deleteAllEntries();
         }
     ]));
+    it('deleteAll in place', inject(['$controller', '$q',
+        function($controller, $q) {
+            var $scope = {};
+            $controller('controller', {
+                $scope: $scope,
+                LocalStorageService: {
+                    getName: function() {
+                        var deferred = $q.defer();
+                        deferred.resolve('hi');
+                        return deferred.promise;
+                    },
+                    deleteAllEntries: function(entry) {
+                        var deferred = $q.defer();
+                        deferred.resolve('hi');
+                        return deferred.promise;
+                    },
+                    getEntries: function() {
+                        var deferred = $q.defer();
+                        deferred.resolve('a');
+                        return deferred.promise;
+                    }
+                }
+            });
+            $scope.entries='afdsfadsfasdfasdfa';
+            $scope.deleteAllEntries();
+            expect($scope.entries).toEqual([]);
+        }
+    ]));
 });
