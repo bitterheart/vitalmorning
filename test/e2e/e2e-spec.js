@@ -25,7 +25,7 @@ describe('simple tests', function() {
             });
             element.all(by.css('div.entries div.entry')).then(function(entries) {
                 expect(entries.length).toEqual(1);
-                expect(entries[0].element(by.css('span.loginPage')).getText()).toEqual('http://something.com');
+                expect(entries[0].element(by.css('span.loginPage')).getAttribute('text')).toEqual('http://something.com');
                 expect(entries[0].element(by.css('span.userId')).getText()).toEqual('userid');
                 expect(entries[0].element(by.css('span.password')).getText()).toEqual('password');
                 expect(entries[0].element(by.css('span.loginPage')).getText()).toEqual('wrong');
