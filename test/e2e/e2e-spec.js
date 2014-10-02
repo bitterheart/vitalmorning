@@ -29,6 +29,7 @@ describe('simple tests', function() {
             element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
             browser.get('index.html');
+            browser.waitForAngular();
         });
         it('verify', function() {
             getText(element(by.css('div.entries div.entry:nth-child(1) span.loginPage')),function(text){
