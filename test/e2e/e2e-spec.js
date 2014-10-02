@@ -101,16 +101,18 @@ describe('simple tests', function() {
         beforeEach(function() {
             browser.addMockModule('ExtensionService',
                 function() {
-                    var app=angular.module('app').service('ExtensionService',['$q',function($q){
-                        this.createTab=function(url) {
-                            var deferred = $q.defer();
-                            expect(url).toEqual('hxttp://something.com');
-                            deferred.resolve();
-                            return deferred.promise;
-                        };
-                    }]);
+                    var app = angular.module('app').service('ExtensionService', ['$q',
+                        function($q) {
+                            this.createTab = function(url) {
+                                var deferred = $q.defer();
+                                expect(url).toEqual('hxttp://something.com');
+                                deferred.resolve();
+                                return deferred.promise;
+                            };
+                        }
+                    ]);
                 }
-            ]);
+            );
             browser.get('index.html');
             element(by.css('span.deleteAll')).click();
             element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
