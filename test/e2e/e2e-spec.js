@@ -19,7 +19,6 @@ describe('simple tests', function() {
             browser.get('index.html');
         });
         it('verify', function() {
-            browser.get('index.html');
             element(by.repeater('entry in entries').row(0)).then(function(el){
                 expect(el.element(by.css('span.loginPage')).getText()).toEqual('http://something.com');
             });
