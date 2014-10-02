@@ -99,8 +99,8 @@ describe('simple tests', function() {
     });
     describe('open loginPage action', function() {
         beforeEach(function() {
-            browser.addMockModule('ExtensionService',['$q',function($q){
 /*
+            browser.addMockModule('ExtensionService',['$q',function($q){
 this.createTab=function(url){
                     var deferred=$q.defer();
                     expect(url).toEqual('http://something.com');
