@@ -23,10 +23,6 @@ describe('simple tests', function() {
             element(by.css('div.addition input.userId')).sendKeys('userid');
             element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
-            element(by.css('span.addEntry')).click();
-            element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
-            element(by.css('div.addition input.userId')).sendKeys('userid');
-            element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
             browser.get('index.html');
             browser.sleep(5000);
@@ -42,10 +38,13 @@ describe('simple tests', function() {
                 expect(el.element(by.css('span.loginPage')).getText()).toEqual('http://something.com');
             });
             element.all(by.css('div.entries div.entry')).then(function(entries) {
-                expect(entries.length).toEqual(1);
+                expect(entries.length).toEqual(2);
                 expect(entries[0].element(by.css('span.loginPage')).getAttribute('value')).toEqual('http://something.com');
                 expect(entries[0].element(by.css('span.userId')).getText()).toEqual('userid');
                 expect(entries[0].element(by.css('span.password')).getText()).toEqual('password');
+                expect(entries[1].element(by.css('span.loginPage')).getAttribute('value')).toEqual('http://something.com');
+                expect(entries[1].element(by.css('span.userId')).getText()).toEqual('userid');
+                expect(entries[1].element(by.css('span.password')).getText()).toEqual('password');
                 expect(entries[0].element(by.css('span.loginPage')).getText()).toEqual('wrong');
             });
         });
