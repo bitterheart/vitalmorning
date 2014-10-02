@@ -160,6 +160,8 @@ describe('controller tests', function() {
         $scope.userId='userid';
         $scope.password='password';
         $scope.addEntry();
+        $rootScope.$apply();
         $scope.openLoginPage($scope.entries[0]);
+        $rootScope.$apply();
     }]));
 });

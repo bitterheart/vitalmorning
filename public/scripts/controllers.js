@@ -1,6 +1,6 @@
 (function(app){
     "use strict";
-    app.controller("controller",["$scope","LocalStorageService",function($scope,localStorageService){
+    app.controller("controller",["$scope","LocalStorageService","ExtensionService",function($scope,localStorageService,extensionService){
         $scope.name="xxx";
         localStorageService.getName().then(function(name){
             $scope.name=name;
@@ -27,6 +27,11 @@
                console.log($scope.loginPage);
                console.log($scope.entries);
             });
+        };
+        $scope.openLoginPage=function(entry){
+            extensionService.createTab(entry.loginPage).then(function(tab){
+                
+            });  
         };
     }]);
 }(window.angular.module('app')));
