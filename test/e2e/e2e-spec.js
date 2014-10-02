@@ -25,9 +25,9 @@ describe('simple tests', function() {
             element(by.css('div.addition span.add')).click();
             element(by.css('div.addition span.add')).click();
             browser.get('index.html');
-            browser.sleep(5000);
-            browser.waitForAngular();
-            browser.sleep(5000);
+//            browser.sleep(5000);
+//            browser.waitForAngular();
+//            browser.sleep(5000);
         });
         it('verify', function() {
             element.all(by.css('div.entries div.entry')).then(function(entries) {
@@ -50,12 +50,12 @@ describe('simple tests', function() {
             element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
             browser.get('index.html');
+            element(by.css('span.deleteAll')).click();
             browser.sleep(5000);
             browser.waitForAngular();
             browser.sleep(5000);
         });
         it('verify', function() {
-            element(by.css('span.deleteAll')).click();
             element.all(by.css('div.entries div.entry')).then(function(entries) {
                 expect(entries.length).toEqual(0);
             });
