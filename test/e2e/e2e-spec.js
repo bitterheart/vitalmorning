@@ -29,12 +29,12 @@ describe('simple tests', function() {
             element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
             browser.get('index.html');
-            browser.sleep(1000);
+            browser.sleep(5000);
             browser.waitForAngular();
-            browser.sleep(1000);
+            browser.sleep(5000);
         });
         it('verify', function() {
-            expect(element.all(by.css('div.entries div.entry')).count()).toEqual(2);
+            expect(element.all(by.repeater('entry in entries')).count()).toEqual(2);
             getText(element(by.css('div.entries div.entry:nth-child(1) span.loginPage')),function(text){
                 expect(text).toEqual('wrong');
             });
