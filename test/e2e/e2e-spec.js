@@ -67,7 +67,7 @@ describe('simple tests', function() {
     describe('verify delete all', function() {
         beforeEach(function() {
             browser.get('index.html');
-             element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
+            element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
             element(by.css('div.addition input.userId')).sendKeys('userid');
             element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
@@ -97,7 +97,7 @@ describe('simple tests', function() {
             });
         });
     });
-    describe('open loginPage action',function(){
+    xdescribe('open loginPage action', function() {
         beforeEach(function() {
             browser.get('index.html');
             element(by.css('span.deleteAll')).click();
@@ -108,7 +108,7 @@ describe('simple tests', function() {
             element(by.css('div.addition span.add')).click();
             browser.get('index.html');
         });
-        it('should be able to oppen login page',function(){
+        it('should be able to oppen login page', function() {
             element(by.css('div.entries div.entry:nth-child(1) span.loginPage')).click();
         });
     });
