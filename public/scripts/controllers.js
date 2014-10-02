@@ -8,7 +8,7 @@
         $scope.saveName=function(){
             localStorageService.setName($scope.name);
         };
-        $scope.entries=[];
+        $scope.entries=[{loginPage:'a',userId:'b',password:'c'}];
         localStorageService.getEntries().then(function(results){
             $scope.entries.push(results);
         });
