@@ -1,5 +1,5 @@
 describe('simple tests', function() {
-    describe('a very simple test', function() {
+    xdescribe('a very simple test', function() {
         beforeEach(function() {
             browser.get('index.html');
         });
@@ -11,6 +11,10 @@ describe('simple tests', function() {
         beforeEach(function() {
             browser.get('index.html');
             element(by.css('span.deleteAll')).click();
+            element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
+            element(by.css('div.addition input.userId')).sendKeys('userid');
+            element(by.css('div.addition input.password')).sendKeys('password');
+            element(by.css('div.addition span.add')).click();
             element(by.css('span.addEntry')).click();
             element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
             element(by.css('div.addition input.userId')).sendKeys('userid');
