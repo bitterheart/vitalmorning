@@ -51,7 +51,8 @@ describe('simple tests', function() {
             element(by.css('div.addition span.add')).click();
             browser.get('index.html');
             element(by.css('span.deleteAll')).click();
-            browser.sleep(5000);
+            browser.get('index.html');
+browser.sleep(5000);
             browser.waitForAngular();
             browser.sleep(5000);
         });
