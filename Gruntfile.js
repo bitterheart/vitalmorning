@@ -126,8 +126,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-simple-crx');
   grunt.loadNpmTasks('grunt-chrome-compile');
   grunt.registerTask('e2e-tests-cli', ['express:cli', 'protractor_webdriver:cli', 'protractor:cli']);
-  grunt.registerTask('e2e-tests-ci', ['express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
+  grunt.registerTask('e2e-tests-ci', ['chrome-extension','express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
   grunt.registerTask('unit-tests-cli', ['karma:cli']);
   grunt.registerTask('unit-tests-ci', ['karma:ci']);
-  grunt.registerTask('crx', ['crx:ci'])
 };
