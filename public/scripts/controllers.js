@@ -14,7 +14,7 @@
         });
         $scope.deleteAllEntries=function(){
             localStorageService.deleteAllEntries().then(function(response){
-                
+                $scope.entries=[];
             });
         };
         $scope.addEntry=function(){

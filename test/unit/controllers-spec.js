@@ -96,8 +96,8 @@ describe('controller tests', function() {
             $scope.deleteAllEntries();
         }
     ]));
-    it('deleteAll in place', inject(['$controller', '$q',
-        function($controller, $q) {
+    it('deleteAll in place', inject(['$rootScope','$controller', '$q',
+        function($rootScope,$controller, $q) {
             var $scope = {};
             $controller('controller', {
                 $scope: $scope,
@@ -114,13 +114,15 @@ describe('controller tests', function() {
                     },
                     getEntries: function() {
                         var deferred = $q.defer();
-                        deferred.resolve('a');
+                        deferred.resolve('b');
                         return deferred.promise;
                     }
                 }
             });
+            $rootScope.$apply();
             $scope.entries='afdsfadsfasdfasdfa';
             $scope.deleteAllEntries();
+            $rootScope.$apply();
             expect($scope.entries).toEqual([]);
         }
     ]));
