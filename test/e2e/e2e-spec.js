@@ -45,6 +45,7 @@ describe('simple tests', function() {
         beforeEach(function() {
             browser.get('index.html');
             element(by.css('span.deleteAll')).click();
+            browser.get('index.html');
             element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
             element(by.css('div.addition input.userId')).sendKeys('userid');
             element(by.css('div.addition input.password')).sendKeys('password');
