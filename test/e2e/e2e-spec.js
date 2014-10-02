@@ -99,17 +99,21 @@ describe('simple tests', function() {
     });
     describe('open loginPage action', function() {
         beforeEach(function() {
-            browser.addMockModule('ExtensionService',['$q',function($q){
-createTab:function(url){
-                    var deferred=$q.defer();
-                    expect(url).toEqual('hxttp://something.com');
-                    deferred.resolve();
-                    return deferred.promise;
-                };
-            }]);
+            browser.addMockModule('ExtensionService', ['$q',
+                function($q) {
+                    return {
+                        createTab: function(url) {
+                            var deferred = $q.defer();
+                            expect(url).toEqual('hxttp://something.com');
+                            deferred.resolve();
+                            return deferred.promise;
+                        }
+                    };
+                }
+            ]);
             browser.get('index.html');
             element(by.css('span.deleteAll')).click();
-             element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
+            element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
             element(by.css('div.addition input.userId')).sendKeys('userid');
             element(by.css('div.addition input.password')).sendKeys('password');
             element(by.css('div.addition span.add')).click();
