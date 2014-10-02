@@ -19,7 +19,7 @@
         };
         $scope.addEntry=function(){
             localStorageService.addEntry({loginPage:$scope.loginPage, userId:$scope.userId, password:$scope.password}).then(function(response){
-                console.log('added');
+                $scope.entries.push({loginPage:$scope.loginPage,userId:$scope.userId,password:$scope.password});
             });
         };
     }]);
