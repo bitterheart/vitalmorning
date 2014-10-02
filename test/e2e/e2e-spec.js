@@ -75,9 +75,23 @@ describe('simple tests', function() {
             browser.get('index.html');
             element(by.css('span.deleteAll')).click();
             browser.get('index.html');
-            browser.sleep(5000);
-            browser.waitForAngular();
-            browser.sleep(5000);
+        });
+        it('verify', function() {
+            element.all(by.css('div.entries div.entry')).then(function(entries) {
+                expect(entries.length).toEqual(0);
+            });
+        });
+    });
+    describe('verify delete all', function() {
+        beforeEach(function() {
+            browser.get('index.html');
+            element(by.css('span.addEntry')).click();
+            element(by.css('div.addition input.loginPage')).sendKeys('http://something.com');
+            element(by.css('div.addition input.userId')).sendKeys('userid');
+            element(by.css('div.addition input.password')).sendKeys('password');
+            element(by.css('div.addition span.add')).click();
+            browser.get('index.html');
+            element(by.css('span.deleteAll')).click();
         });
         it('verify', function() {
             element.all(by.css('div.entries div.entry')).then(function(entries) {
