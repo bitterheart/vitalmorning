@@ -42,7 +42,6 @@ describe('simple tests', function() {
             element(by.css('span.deleteAll')).click();
             element.all(by.css('div.entries div.entry')).then(function(entries) {
                 expect(entries.length).toEqual(0);
-                expect(entries.length).toEqual(1);
             });
         });
     });
