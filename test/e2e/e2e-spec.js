@@ -20,7 +20,9 @@ describe('simple tests', function() {
         });
         it('verify', function() {
             browser.get('index.html');
-            expect(element(by.css('div.entries div.entry:nth-child(1) span.loginPage')).getText()).toEqual('http://something.com');
+            expect(element(by.css('div.entries div.entry').row(0).then(function(el){
+                expect(el.element(by.css('span.loginPage')).getText()).toEqual('http://something.com');
+            });
             element.all(by.css('div.entries div.entry')).then(function(entries) {
                 expect(entries.length).toEqual(1);
                 expect(entries[0].element(by.css('span.loginPage')).getText()).toEqual('http://something.com');
