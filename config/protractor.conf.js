@@ -9,7 +9,7 @@ exports.config = {
     chromeOptions: {
       binary: '/usr/bin/google-chrome',
       args: ['--disable-web-security'],
-      extensions:['build/*.crx']
+      extensions:['build/PasswordManager.zip']
 
     },
     count: 1,
