@@ -1,0 +1,25 @@
+{
+  "name": "workspace",
+  "version": "0.1.0",
+  "homepage": "https://github.com/bitterheart/vitalmorning",
+  "authors": [
+    "Emory Merryman"
+  ],
+  "description": "Password Manager",
+  "main": "public/index.html",
+  "license": "GNU GPL3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.26"
+  },
+  "devDependencies": {
+    "ez-zero-clipboard": "https://github.com/jdewit/ez-zero-clipboard.git#~0.0.1"
+  }
+}
