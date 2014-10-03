@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         options: {
           hostname: '*',
           port: 31574,
-          bases: 'public'
+          bases: ['public','bower_components']
         }
       },
       ci: {

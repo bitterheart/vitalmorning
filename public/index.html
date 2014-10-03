@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>Password Manager</title>
-    <script src="cdn/angular/1.2.9/angular.min.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="bower_components/ez-zero-clipboard/dist/ez-zero-clipboard.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers.js"></script>
     <script src="scripts/services.js"></script>
@@ -22,8 +23,8 @@
       <div class='entries'>
         <div class='entry' ng-repeat='entry in entries'>
           <span class='loginPage' ng-bind='entry.loginPage' ng-click='openLoginPage(entry)'></span>
-          <span class='userId' ng-bind='entry.userId'></span>
-          <span class='password' ng-bind='entry.password'></span>
+          <span class='userId' ng-bind='entry.userId' zero-clipboard='Copied userId to clipboard' data-clipboard-text='entry.userId'></span>
+          <span class='password' ng-bind='entry.password' zero-clipboard='Copied password to clipboard' data-clipboard-text='entry.password'></span>
         </div>
       </div>
     </div>
