@@ -9,7 +9,7 @@ exports.config = {
     chromeOptions: {
       binary: '/usr/bin/google-chrome',
       args: ['--disable-web-security'],
- //     extensions:['build/PasswordManager.zip']
+      //     extensions:['build/PasswordManager.zip']
 
     },
     count: 1,
@@ -22,7 +22,23 @@ exports.config = {
   rootElement: 'body',
   allScriptsTimeout: 11000,
   getPageTimeout: 10000,
-  onPrepare: function() {},
+  onPrepare: function() {
+    browser.addMockModule('ExtensionService',
+      function() {
+        angular.module('mockApp', []).service('ExtensionService', ['$q',
+          function($q) {
+            this.createTab = function(url) {
+              var deferred = $q.defer();
+              expect(url).toEqual('hxttp://something.com');
+              deferred.resolve();
+              return deferred.promise;
+            };
+          }
+        ]);
+      }
+    );
+
+  },
   onComplete: function() {},
   onCleanUp: function(exitCode) {},
   params: {
