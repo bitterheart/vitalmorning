@@ -21,7 +21,7 @@
       </div>
       <div class='entries'>
         <div class='entry' ng-repeat='entry in entries'>
-          <span class='loginPage' ng-bind='entry.loginPage'></span>
+          <span class='loginPage' ng-bind='entry.loginPage' ng-click='openLoginPage(entry)'></span>
           <span class='userId' ng-bind='entry.userId'></span>
           <span class='password' ng-bind='entry.password'></span>
         </div>
