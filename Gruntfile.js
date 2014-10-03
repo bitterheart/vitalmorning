@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         options: {
           hostname: '*',
           port: 31574,
-          bases: ['public','bower_components']
+          bases: ['public', 'bower_components']
         }
       },
       ci: {
@@ -116,6 +116,23 @@ module.exports = function(grunt) {
         ]
       }
     },
+    bowerInstall: {
+      target: {
+        src: [
+          'public/index.html'
+        ],
+
+        // Optional:
+        // ---------
+        cwd: '',
+        dependencies: true,
+        devDependencies: false,
+        exclude: [],
+        fileTypes: {},
+        ignorePath: '',
+        overrides: {}
+      }
+    }
   });
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-express');
@@ -125,8 +142,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-crx');
   grunt.loadNpmTasks('grunt-simple-crx');
   grunt.loadNpmTasks('grunt-chrome-compile');
+  grunt.loadNpmTasks('grunt-bower-install');
   grunt.registerTask('e2e-tests-cli', ['express:cli', 'protractor_webdriver:cli', 'protractor:cli']);
-  grunt.registerTask('e2e-tests-ci', ['chrome-extension','express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
+  grunt.registerTask('e2e-tests-ci', ['grunt-bower-install','chrome-extension', 'express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
   grunt.registerTask('unit-tests-cli', ['karma:cli']);
   grunt.registerTask('unit-tests-ci', ['karma:ci']);
 };
