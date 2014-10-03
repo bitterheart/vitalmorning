@@ -23,6 +23,7 @@ exports.config = {
   allScriptsTimeout: 11000,
   getPageTimeout: 10000,
   onPrepare: function() {
+    /*
     browser.addMockModule('ExtensionService',
       function() {
         angular.module('mockApp', []).service('ExtensionService', ['$q',
@@ -37,7 +38,7 @@ exports.config = {
         ]);
       }
     );
-
+*/
   },
   onComplete: function() {},
   onCleanUp: function(exitCode) {},
