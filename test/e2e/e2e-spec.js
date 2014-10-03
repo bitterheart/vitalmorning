@@ -101,7 +101,7 @@ describe('simple tests', function() {
         beforeEach(function() {
             browser.addMockModule('ExtensionService',
                 function() {
-                    var app = angular.module('app').service('ExtensionService', ['$q',
+                    angular.module('mockApp',[]).service('ExtensionService', ['$q',
                         function($q) {
                             this.createTab = function(url) {
                                 var deferred = $q.defer();
