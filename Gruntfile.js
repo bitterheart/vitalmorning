@@ -152,7 +152,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-install');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.registerTask('e2e-tests-cli', ['express:cli', 'protractor_webdriver:cli', 'protractor:cli']);
-  grunt.registerTask('e2e-tests-ci', ['grunt-bower-install','chrome-extension', 'express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
+  grunt.registerTask('e2e-tests-ci', ['bowerInstall','chrome-extension', 'express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
   grunt.registerTask('unit-tests-cli', ['karma:cli']);
   grunt.registerTask('unit-tests-ci', ['karma:ci']);
 };
