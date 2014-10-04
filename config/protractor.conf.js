@@ -1,4 +1,4 @@
- //(function() {
+ (function() {
    "use strict";
 /*jshint node:true*/
 module.exports.config = {
@@ -40,4 +40,4 @@ module.exports.config = {
        reporter: "list"
      }
    };
-// }());
+}());
