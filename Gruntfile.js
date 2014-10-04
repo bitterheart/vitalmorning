@@ -116,6 +116,13 @@ module.exports = function(grunt) {
         ]
       }
     },
+    eslint: {
+        options: {
+ //           config: 'conf/eslint.json',
+//            rulesdir: ['conf/rules']
+        },
+        target: ['Gruntfile.js','bower.json','manifest.json','package.json','public/scripts/*.json','config/*.js']
+    },
     bowerInstall: {
       target: {
         src: [
@@ -143,6 +150,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-simple-crx');
   grunt.loadNpmTasks('grunt-chrome-compile');
   grunt.loadNpmTasks('grunt-bower-install');
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.registerTask('e2e-tests-cli', ['express:cli', 'protractor_webdriver:cli', 'protractor:cli']);
   grunt.registerTask('e2e-tests-ci', ['grunt-bower-install','chrome-extension', 'express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
   grunt.registerTask('unit-tests-cli', ['karma:cli']);
