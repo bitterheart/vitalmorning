@@ -6,38 +6,38 @@ module.exports = function(grunt) {
         stderr: false
       },
       chrome: {
-        command: 'Xvfb :1 -screen 0 1280x768x24 & '
+        command: "Xvfb :1 -screen 0 1280x768x24 & "
       }
     },
     express: {
       cli: {
         options: {
-          hostname: '*',
+          hostname: "*",
           port: 31574,
-          bases: ['public', 'bower_components']
+          bases: ["public", "bower_components"]
         }
       },
       ci: {
         options: {
-          hostname: '*',
+          hostname: "*",
           port: 31574,
-          bases: 'public'
+          bases: "public"
         }
       }
     },
     protractor_webdriver: {
       options: {
-        path: 'node_modules/protractor/bin/',
-        command: 'webdriver-manager start'
+        path: "node_modules/protractor/bin/",
+        command: "webdriver-manager start"
 
       },
       cli: {
-        path: 'node_modules/protractor/bin/',
-        command: 'webdriver-manager start'
+        path: "node_modules/protractor/bin/",
+        command: "webdriver-manager start"
       },
       ci: {
-        path: 'node_modules/protractor/bin/',
-        command: 'webdriver-manager start',
+        path: "node_modules/protractor/bin/",
+        command: "webdriver-manager start",
         keepAlive: false
       },
     },
@@ -66,18 +66,18 @@ module.exports = function(grunt) {
     },
     karma: {
       cli: {
-        configFile: 'config/karma.conf.js',
+        configFile: "config/karma.conf.js",
         port: 25758,
         singleRun: false,
         autoWatch: true,
-        reporters: ['progress'],
+        reporters: ["progress"],
       },
       ci: {
-        configFile: 'config/karma.conf.js',
+        configFile: "config/karma.conf.js",
         port: 31982,
         singleRun: true,
         autoWatch: false,
-        reporters: ['progress', 'html', 'coverage'],
+        reporters: ["progress", "html", "coverage"],
       }
     },
     crx: {
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
         // Target-specific file lists and/or options go here.
       },
     },
-    'chrome-extension': {
+    "chrome-extension": {
       options: {
         name: "Password Manager",
         version: "1.0",
@@ -106,22 +106,22 @@ module.exports = function(grunt) {
         updateUrl: "http://example.com/extension/111111/",
         chrome: "/usr/bin/google-chrome",
         clean: true,
-        certDir: 'cert',
-        buildDir: 'build',
+        certDir: "cert",
+        buildDir: "build",
         resources: [
-          'icon.png',
-          'public/index.html',
-          'public/cdn/*.js',
-          'public/scripts/*.js'
+          "icon.png",
+          "public/index.html",
+          "public/cdn/*.js",
+          "public/scripts/*.js"
         ]
       }
     },
     eslint: {
         options: {
- //           config: 'conf/eslint.json',
-//            rulesdir: ['conf/rules']
+ //           config: "conf/eslint.json",
+//            rulesdir: ["conf/rules"]
         },
-        target: ['Gruntfile.js','bower.json','manifest.json','package.json','public/scripts/*.json','config/*.js']
+        target: ["Gruntfile.js","bower.json","manifest.json","package.json","public/scripts/*.json","config/*.js"]
     },
       bower: {
     install: {
@@ -130,31 +130,31 @@ module.exports = function(grunt) {
     bowerInstall: {
       target: {
         src: [
-          'public/index.html'
+          "public/index.html"
         ],
-        cwd: '',
+        cwd: "",
         dependencies: true,
         devDependencies: false,
         exclude: [],
         fileTypes: {},
-        ignorePath: '',
+        ignorePath: "",
         overrides: {}
       }
     }
   });
-  grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-express');
-  grunt.loadNpmTasks('grunt-protractor-webdriver');
-  grunt.loadNpmTasks('grunt-protractor-runner');
-  grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-crx');
-  grunt.loadNpmTasks('grunt-simple-crx');
-  grunt.loadNpmTasks('grunt-chrome-compile');
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-bower-install');
-  grunt.loadNpmTasks('grunt-eslint');
-  grunt.registerTask('e2e-tests-cli', ['express:cli', 'protractor_webdriver:cli', 'protractor:cli']);
-  grunt.registerTask('e2e-tests-ci', ['bower:install', 'bowerInstall','chrome-extension', 'express:ci', 'protractor_webdriver:ci', 'protractor:ci']);
-  grunt.registerTask('unit-tests-cli', ['karma:cli']);
-  grunt.registerTask('unit-tests-ci', ['karma:ci']);
+  grunt.loadNpmTasks("grunt-shell");
+  grunt.loadNpmTasks("grunt-express");
+  grunt.loadNpmTasks("grunt-protractor-webdriver");
+  grunt.loadNpmTasks("grunt-protractor-runner");
+  grunt.loadNpmTasks("grunt-karma");
+  grunt.loadNpmTasks("grunt-crx");
+  grunt.loadNpmTasks("grunt-simple-crx");
+  grunt.loadNpmTasks("grunt-chrome-compile");
+  grunt.loadNpmTasks("grunt-bower-task");
+  grunt.loadNpmTasks("grunt-bower-install");
+  grunt.loadNpmTasks("grunt-eslint");
+  grunt.registerTask("e2e-tests-cli", ["express:cli", "protractor_webdriver:cli", "protractor:cli"]);
+  grunt.registerTask("e2e-tests-ci", ["bower:install", "bowerInstall","chrome-extension", "express:ci", "protractor_webdriver:ci", "protractor:ci"]);
+  grunt.registerTask("unit-tests-cli", ["karma:cli"]);
+  grunt.registerTask("unit-tests-ci", ["karma:ci"]);
 };
