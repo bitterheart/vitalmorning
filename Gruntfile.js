@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    protractor_webdriver: {
+    "protractor_webdriver": {
       options: {
         path: "node_modules/protractor/bin/",
         command: "webdriver-manager start"
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         path: "node_modules/protractor/bin/",
         command: "webdriver-manager start",
         keepAlive: false
-      },
+      }
     },
     protractor: {
       option: {
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
           noColor: true,
           args: {}
         }
-      },
+      }
     },
     karma: {
       cli: {
@@ -70,14 +70,14 @@ module.exports = function(grunt) {
         port: 25758,
         singleRun: false,
         autoWatch: true,
-        reporters: ["progress"],
+        reporters: ["progress"]
       },
       ci: {
         configFile: "config/karma.conf.js",
         port: 31982,
         singleRun: true,
         autoWatch: false,
-        reporters: ["progress", "html", "coverage"],
+        reporters: ["progress", "html", "coverage"]
       }
     },
     "chrome-extension": {
@@ -107,7 +107,7 @@ module.exports = function(grunt) {
     },
       bower: {
     install: {
-      targetDir: 'public'
+      targetDir: "public"
     }
   },
     bowerInstall: {
