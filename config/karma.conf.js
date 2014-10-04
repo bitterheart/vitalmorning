@@ -1,5 +1,6 @@
-"use strict";
+/*global module:true*/
 module.exports = function(config) {
+	"use strict";
 	config.set({
 		basePath: "../",
 		frameworks: ["jasmine"],
@@ -18,6 +19,7 @@ module.exports = function(config) {
 		browsers: ["PhantomJS"],
 		htmlReporter: {
 			outputDir: "/tmp/unit-tests/correctness",
+			/*global __dirname:true*/
 			templatePath: __dirname + "/../node_modules/karma-html-reporter/jasmine_template.html"
 		},
 		coverageReporter: {
