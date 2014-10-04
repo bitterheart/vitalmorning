@@ -1,6 +1,6 @@
-module.exports.config = function() {
   "use strict";
-  return {
+ module.exports.config = { //function() {
+// return {
     seleniumAddress: "http://localhost:4444/wd/hub",
     specs: [
       "../test/e2e/*.js"
@@ -38,5 +38,5 @@ module.exports.config = function() {
       ui: "bdd",
       reporter: "list"
     }
-  };
+//  };
 };
