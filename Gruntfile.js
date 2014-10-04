@@ -80,23 +80,6 @@ module.exports = function(grunt) {
         reporters: ["progress", "html", "coverage"],
       }
     },
-    crx: {
-      ci: {
-        "src": "./",
-        "dest": "/tmp/dist/crx/",
-      }
-    },
-    simple_crx: {
-      options: {
-        // Task-specific options go here.
-      },
-      ci: {
-        options: {},
-        files: {
-
-        }
-        // Target-specific file lists and/or options go here.
-      },
     },
     "chrome-extension": {
       options: {
@@ -125,6 +108,7 @@ module.exports = function(grunt) {
     },
       bower: {
     install: {
+      targetDir: 'public'
     }
   },
     bowerInstall: {
