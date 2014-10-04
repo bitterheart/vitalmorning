@@ -4,6 +4,7 @@
     "eslint": "^0.8.2",
     "grunt": "^0.4.5",
     "grunt-bower-install": "^1.6.0",
+    "grunt-bower-task": "^0.4.0",
     "grunt-chrome-compile": "^0.2.2",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.4.1",

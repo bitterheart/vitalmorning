@@ -128,9 +128,6 @@ module.exports = function(grunt) {
         src: [
           'public/index.html'
         ],
-
-        // Optional:
-        // ---------
         cwd: '',
         dependencies: true,
         devDependencies: false,
