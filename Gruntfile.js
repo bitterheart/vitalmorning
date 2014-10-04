@@ -80,7 +80,6 @@ module.exports = function(grunt) {
         reporters: ["progress", "html", "coverage"],
       }
     },
-    },
     "chrome-extension": {
       options: {
         name: "Password Manager",
