@@ -1,7 +1,7 @@
  (function() {
    "use strict";
-/*jshint node:true*/
-module.exports.config = {
+   /*jshint node:true*/
+   module.exports.config = {
      seleniumAddress: "http://localhost:4444/wd/hub",
      specs: [
        "../test/e2e/*.js"
@@ -40,4 +40,4 @@ module.exports.config = {
        reporter: "list"
      }
    };
-}());
+ }());
