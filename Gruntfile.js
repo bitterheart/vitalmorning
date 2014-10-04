@@ -150,7 +150,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-crx');
   grunt.loadNpmTasks('grunt-simple-crx');
   grunt.loadNpmTasks('grunt-chrome-compile');
-  grunt.loadNpmTasks('grunt-bower');
+  grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-bower-install');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.registerTask('e2e-tests-cli', ['express:cli', 'protractor_webdriver:cli', 'protractor:cli']);
