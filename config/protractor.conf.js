@@ -42,7 +42,7 @@
      onPrepare: function() {
        /*global HtmlReporter jasmine:true*/
        jasmine.getEnv().addReporter(new HtmlReporter({
-         baseDirectory: "/tmp/e2e-tests/correctness",
+         baseDirectory: "reports/e2e-tests/correctness",
          takeScreenShotsOnlyForFailedSpecs: true,
          docTitle: "protractor reporter"
        }));
