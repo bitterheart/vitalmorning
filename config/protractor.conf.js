@@ -1,6 +1,7 @@
  (function() {
    "use strict";
-   /*global exports:true*/
+   var HtmlReporter = require('protractor-html-screenshot-reporter');
+  /*global exports:true*/
    exports.config = {
      seleniumAddress: "http://localhost:4444/wd/hub",
      specs: [
@@ -40,7 +41,7 @@
        reporter: "list"
      },
      onPrepare: function() {
-       /*global HtmlReporter jasmine:true*/
+       /*global jasmine:true*/
        jasmine.getEnv().addReporter(new HtmlReporter({
          baseDirectory: "reports/e2e-tests/correctness",
          takeScreenShotsOnlyForFailedSpecs: true,
