@@ -42,11 +42,12 @@
      },
      onPrepare: function() {
        /*global jasmine:true*/
-       jasmine.getEnv().addReporter(new HtmlReporter({
+/*       jasmine.getEnv().addReporter(new HtmlReporter({
          baseDirectory: "reports/e2e-tests/correctness",
          takeScreenShotsOnlyForFailedSpecs: true,
          docTitle: "protractor reporter"
        }));
+       */
      }
    };
  }());
